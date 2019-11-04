@@ -1,0 +1,20 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int inputSec ,outS,outM,outH= 0;
+            inputSec=int.Parse(Console.ReadLine());
+
+            outH = inputSec / 3600;
+            outM = (inputSec % 3600) / 60;
+            outS = (inputSec % 3600) % 60;
+
+            Console.WriteLine(outH + ":" + outM + ":" + outS);
+           
+        }
+    }
+}

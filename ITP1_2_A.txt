@@ -1,0 +1,28 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string inputLine = "";
+            int firstNum, secondNum = 0;
+           
+            string[] Num = Console.ReadLine().Split(' ');
+            firstNum = int.Parse(Num[0]);
+            secondNum = int.Parse(Num[1]);
+            if(firstNum<secondNum)
+            {
+                Console.WriteLine("a < b");
+            }else if (firstNum > secondNum)
+            {
+                Console.WriteLine("a > b");
+            }
+            else
+            {
+                Console.WriteLine("a == b");
+            }
+        }
+    }
+}
