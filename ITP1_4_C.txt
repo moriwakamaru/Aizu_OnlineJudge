@@ -1,0 +1,39 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 0; ; i++)
+            {
+                int answer = 0;
+                string[] inputString = Console.ReadLine().Split();
+                if (inputString[1] == "?")
+                {
+                    break;
+                }
+                if (inputString[1] == "+")
+                {
+                    answer = int.Parse(inputString[0]) + int.Parse(inputString[2]);
+                }
+                if (inputString[1] == "-")
+                {
+                    answer = int.Parse(inputString[0]) - int.Parse(inputString[2]);
+                }
+                if (inputString[1] == "*")
+                {
+                    answer = int.Parse(inputString[0]) * int.Parse(inputString[2]);
+                }
+                if (inputString[1] == "/")
+                {
+                    answer = int.Parse(inputString[0]) / int.Parse(inputString[2]);
+                }
+
+                Console.WriteLine(answer);
+            }
+
+        }
+    }
+}

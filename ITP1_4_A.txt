@@ -1,0 +1,20 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] num = Console.ReadLine().Split();
+            int d, r = 0;
+            double f = 0;
+
+            d = int.Parse(num[0]) / int.Parse(num[1]);
+            r = int.Parse(num[0]) % int.Parse(num[1]);
+            f = double.Parse(num[0]) / double.Parse(num[1]);
+
+            Console.WriteLine(d + " " + r + " " + f.ToString("F5"));
+        }
+    }
+}

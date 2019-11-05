@@ -1,0 +1,17 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double radius = double.Parse(Console.ReadLine());
+           
+            double area = radius * radius * Math.PI;
+            double circumference = 2 * radius * Math.PI;
+
+            Console.WriteLine(area +" " +circumference);
+        }
+    }
+}

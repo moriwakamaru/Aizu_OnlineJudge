@@ -1,0 +1,25 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string testNum = "";
+
+            for (int i = 1; ; i++)
+            {
+                testNum = Console.ReadLine();
+                if (int.Parse(testNum) != 0)
+                {
+                    Console.WriteLine("Case " + i + ": " + testNum);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+}

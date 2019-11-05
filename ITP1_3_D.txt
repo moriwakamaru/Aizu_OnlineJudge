@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] inputnum = Console.ReadLine().Split();
+
+            var divisor = new List<int>();
+            int answer = 0;
+
+            for (int i = 1; i <= int.Parse(inputnum[2]); i++)
+            {
+                if (int.Parse(inputnum[2]) % i == 0)
+                {
+                    divisor.Add(i);
+                }
+            }
+
+            for (int j = 0; j < divisor.Count; j++)
+            {
+                if (int.Parse(inputnum[0]) <= divisor[j] && divisor[j] <= int.Parse(inputnum[1]))
+                {
+                    answer += 1;
+                }
+            }
+
+            Console.WriteLine(answer);
+
+        }
+    }
+}

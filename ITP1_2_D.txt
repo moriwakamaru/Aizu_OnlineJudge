@@ -1,0 +1,29 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] num = Console.ReadLine().Split();
+
+            int leftSide, rightSide, top, bottom = 0;
+
+            leftSide = int.Parse(num[2]) - int.Parse(num[4]);
+            rightSide = int.Parse(num[2]) + int.Parse(num[4]);
+            top = int.Parse(num[3]) + int.Parse(num[4]);
+            bottom = int.Parse(num[3]) - int.Parse(num[4]);
+
+            if (0 <= leftSide && 0 <= bottom && rightSide <= int.Parse(num[0]) && top <= int.Parse(num[1]))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+
+        }
+    }
+}

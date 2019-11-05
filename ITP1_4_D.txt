@@ -1,0 +1,31 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = int.Parse(Console.ReadLine());
+            string[] num = Console.ReadLine().Split();
+            int min = int.Parse(num[0]), max = int.Parse(num[0]);
+            long sum = long.Parse(num[0]);
+
+            for (int i = 1; i < count; i++)
+            {
+                if (min >= int.Parse(num[i]))
+                {
+                    min = int.Parse(num[i]);
+                }
+
+                if (max <= int.Parse(num[i]))
+                {
+                    max = int.Parse(num[i]);
+                }
+
+                sum += int.Parse(num[i]);
+            }
+            Console.WriteLine(min + " " + max + " " + sum);
+        }
+    }
+}
