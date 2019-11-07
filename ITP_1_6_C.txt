@@ -1,0 +1,85 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = int.Parse(Console.ReadLine());
+
+
+
+            int[,] houseA = new int[3, 10];
+            Initilize(houseA);
+            int[,] houseB = new int[3, 10];
+            Initilize(houseB);
+            int[,] houseC = new int[3, 10];
+            Initilize(houseC);
+            int[,] houseD = new int[3, 10];
+            Initilize(houseD);
+
+            for (int i = 0; i < count; i++)
+            {
+                string[] Residents = Console.ReadLine().Split();
+
+                switch (int.Parse(Residents[0]))
+                {
+                    case 1:
+                        houseA[int.Parse(Residents[1]) - 1, int.Parse(Residents[2]) - 1] += int.Parse(Residents[3]);
+                        break;
+
+                    case 2:
+                        houseB[int.Parse(Residents[1]) - 1, int.Parse(Residents[2]) - 1] += int.Parse(Residents[3]);
+                        break;
+
+                    case 3:
+                        houseC[int.Parse(Residents[1]) - 1, int.Parse(Residents[2]) - 1] += int.Parse(Residents[3]);
+                        break;
+
+                    case 4:
+                        houseD[int.Parse(Residents[1]) - 1, int.Parse(Residents[2]) - 1] += int.Parse(Residents[3]);
+                        break;
+                }
+            }
+            OutputLine(houseA);
+            SplitLine();
+            OutputLine(houseB);
+            SplitLine();
+            OutputLine(houseC);
+            SplitLine();
+            OutputLine(houseD);
+
+        }
+        static void Initilize(int[,] house)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    house[i, j] = 0;
+                }
+
+            }
+        }
+        static void OutputLine(int[,] house)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.Write(" " + house[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
+        static void SplitLine()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write("#");
+            }
+            Console.WriteLine();
+        }
+    }
+}

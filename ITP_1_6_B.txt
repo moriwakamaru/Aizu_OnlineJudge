@@ -1,0 +1,64 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = int.Parse(Console.ReadLine());
+
+            bool[] spades = new bool[13];
+            Initilize(spades);
+            bool[] hearts = new bool[13];
+            Initilize(hearts);
+            bool[] clubs = new bool[13];
+            Initilize(clubs);
+            bool[] diamonds = new bool[13];
+            Initilize(diamonds);
+
+            for (int i = 0; i < count; i++)
+            {
+                string[] card = Console.ReadLine().Split();
+
+                switch (card[0])
+                {
+                    case "S":
+                        spades[int.Parse(card[1]) - 1] = true;
+                        break;
+
+                    case "H":
+                        hearts[int.Parse(card[1]) - 1] = true;
+                        break;
+
+                    case "C":
+                        clubs[int.Parse(card[1]) - 1] = true;
+                        break;
+
+                    case "D":
+                        diamonds[int.Parse(card[1]) - 1] = true;
+                        break;
+                }
+            }
+            Outputline(spades, "S");
+            Outputline(hearts, "H");
+            Outputline(clubs, "C");
+            Outputline(diamonds, "D");
+
+        }
+        static void Initilize(bool[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = false;
+            }
+        }
+        static void Outputline(bool[] array, string mark)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] != true) Console.WriteLine(mark + " " + (i + 1));
+            }
+        }
+    }
+}

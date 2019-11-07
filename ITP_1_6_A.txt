@@ -1,0 +1,20 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int count = int.Parse(Console.ReadLine());
+            string[] num = Console.ReadLine().Split();
+
+            for (int i = count - 1; i >= 0; i--)
+            {
+                Console.Write(num[i]);
+                if (i != 0) Console.Write(" ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
