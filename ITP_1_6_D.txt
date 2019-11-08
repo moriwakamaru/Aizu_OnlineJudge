@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+
+        static private List<int> ColumnVector_b = new List<int>();
+        static private List<int> ranks_A = new List<int>();
+        static private List<int> ColumnVector_c = new List<int>();
+        static private string[] number = null;
+        static void Main(string[] args)
+        {
+            string[] ranks_A_count = Console.ReadLine().Split();
+            int ranks_A_CountRow = int.Parse(ranks_A_count[0]);
+            int ranks_A_CountColumn = int.Parse(ranks_A_count[1]);
+
+            input_Ranks_A(ranks_A_CountRow, ranks_A_CountColumn);
+            input_ColumnVector(ranks_A_CountColumn);
+            Calculate_Ranks_C(ranks_A_CountRow, ranks_A_CountColumn);
+            output_Ranks(ColumnVector_c);
+
+        }
+        static void input_Ranks_A(int countRow, int CountColumn)
+        {
+            for (int i = 0; i < countRow; i++)
+            {
+                number = Console.ReadLine().Split();
+                for (int j = 0; j < CountColumn; j++)
+                {
+                    ranks_A.Add(int.Parse(number[j]));
+                }
+            }
+        }
+
+        static void input_ColumnVector(int countRow)
+        {
+            for (int k = 0; k < countRow; k++)
+            {
+                ColumnVector_b.Add(int.Parse(Console.ReadLine()));
+            }
+        }
+
+        static void Calculate_Ranks_C(int countRow, int countColumn)
+        {
+            int ranks_C_Row = 0;
+            for (int i = 0; i < countRow; i++)
+            {
+                ranks_C_Row = 0;
+                for (int j = 0; j < countColumn; j++)
+                {
+                    ranks_C_Row += ranks_A[i * countColumn + j] * ColumnVector_b[j];
+                }
+                ColumnVector_c.Add(ranks_C_Row);
+            }
+        }
+        static void output_Ranks(List<int> ranks)
+        {
+            for (int i = 0; i < ranks.Count; i++)
+            {
+                Console.WriteLine(ranks[i]);
+            }
+        }
+    }
+}
