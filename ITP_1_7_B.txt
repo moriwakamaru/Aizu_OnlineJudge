@@ -1,0 +1,50 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+
+        static private int max;
+        static private int sum;
+        static private bool finish;
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                inputNum();
+                if (finish) return;
+                Console.WriteLine(CountWays());
+            }
+        }
+
+        static void inputNum()
+        {
+            string[] num = Console.ReadLine().Split();
+            if (int.Parse(num[0]) == 0 && int.Parse(num[1]) == 0)
+            {
+                finish = true;
+                return;
+            }
+            max = int.Parse(num[0]);
+            sum = int.Parse(num[1]);
+        }
+
+        static int CountWays()
+        {
+            int count = 0;
+            for (int i = 1; i <= max; i++)
+            {
+                for (int j = i+1; j <= max; j++)
+                {
+                    for (int k = j+1; k <= max; k++)
+                    {
+                        if(i+j+k==sum&&!(i==j||j==k||k==i)) count++;
+                    }
+                }
+            }
+            return count;
+        }
+    }
+}
