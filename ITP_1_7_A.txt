@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+
+        static private int midterm_Examination;
+        static private int final_Examination;
+        static private int makeup_Examination;
+        static private bool Finish = false;
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                input_Score();
+                if (Finish) return;
+                Console.WriteLine(Gradeing());
+            }
+        }
+
+        static void input_Score()
+        {
+            string[] score = Console.ReadLine().Split();
+            if (int.Parse(score[0]) == -1 && int.Parse(score[1]) == -1 && int.Parse(score[2]) == -1)
+            {
+                Finish = true;
+                return;
+            }
+            midterm_Examination = int.Parse(score[0]);
+            final_Examination = int.Parse(score[1]);
+            makeup_Examination = int.Parse(score[2]);
+        }
+        static string Gradeing()
+        {
+            if (midterm_Examination == -1 || final_Examination == -1)
+            {
+                return "F";
+            }
+            if (80 <= midterm_Examination + final_Examination)
+            {
+                return "A";
+            }
+            if (65 <= midterm_Examination + final_Examination && midterm_Examination + final_Examination < 80)
+            {
+                return "B";
+            }
+            if (50 <= midterm_Examination + final_Examination && midterm_Examination + final_Examination < 65)
+            {
+                return "C";
+            }
+            if (30 <= midterm_Examination + final_Examination && midterm_Examination + final_Examination < 50)
+            {
+                if (50 <= makeup_Examination)
+                {
+                    return "C";
+                }
+                else
+                {
+                    return "D";
+                }
+            }
+            if (midterm_Examination + final_Examination < 30)
+            {
+                return "F";
+            }
+            return "ERROR";
+        }
+    }
+}
