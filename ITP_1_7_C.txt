@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+
+        static private int inputRow;
+        static private int inputColumn;
+        static private List<int> inputTable = new List<int>();
+        static private List<string> outputTable = new List<string>();
+
+
+        static void Main(string[] args)
+        {   
+                InputRowColumn();
+                InputTable();
+                OutputRowSum();
+            int sum = 0;
+            for (int i=0;i<inputColumn;i++)
+            {  
+                Console.Write(CalculateColumn(i)+" ");
+                sum += CalculateColumn(i);
+            }
+            Console.WriteLine(sum);
+
+        }
+        static void InputRowColumn()
+        {
+            string[] num = Console.ReadLine().Split();
+           
+            inputRow = int.Parse(num[0]);
+            inputColumn = int.Parse(num[1]);
+        }
+
+        static void InputTable()
+        {
+            for(int i=0;i<inputRow;i++)
+            {
+                string[] num = Console.ReadLine().Split();
+                for(int j=0;j<inputColumn;j++)
+                {
+                    inputTable.Add(int.Parse(num[j]));
+                }
+            }
+        }
+
+        static void OutputRowSum()
+        {
+            int sum = 0;
+            for(int i=0;i<inputRow*inputColumn;i++)
+            {
+                sum += inputTable[i];
+                Console.Write(inputTable[i] + " ");
+                if (i % inputColumn == inputColumn-1)
+                {
+                    Console.WriteLine(sum);
+                    sum = 0;
+                }
+            }
+            
+        }
+
+        static int CalculateColumn(int columnCount)
+         {
+            int sum = 0;
+            for (int i = 0; i < inputRow * inputColumn; i++)
+            {
+                if (i % inputColumn == columnCount)
+                {
+                    sum += inputTable[i];
+                }
+            }
+            return sum;
+        }
+    }
+}
