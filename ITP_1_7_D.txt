@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        static private List<int> matrixA = new List<int>();
+        static private List<int> matrixB = new List<int>();
+        static private List<long> matrixC = new List<long>();
+        static private int input_A_Row;
+        static private int input_A_Column;
+        static private int input_B_Row;
+        static private int input_B_Column;
+
+        static void Main(string[] args)
+        {
+            InputInforMatrix();
+            InputMatrix(input_A_Row, input_A_Column, matrixA);
+            InputMatrix(input_B_Row, input_B_Column, matrixB);
+            CalculateMatrix(input_A_Row, input_A_Column, matrixA, input_B_Row, input_B_Column, matrixB, matrixC);
+            OutputMatrix(matrixC, input_A_Row, input_B_Column);
+        }
+
+        static void InputInforMatrix()
+        {
+            string[] num = Console.ReadLine().Split();
+            input_A_Row = int.Parse(num[0]);
+            input_A_Column = int.Parse(num[1]);
+            input_B_Row = int.Parse(num[1]);//input_B_Row=input_A_Column
+            input_B_Column = int.Parse(num[2]);
+        }
+
+        static void InputMatrix(int row, int column, List<int> matrix)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                string[] num = Console.ReadLine().Split();
+                for (int j = 0; j < column; j++)
+                {
+                    matrix.Add(int.Parse(num[j]));
+                }
+            }
+        }
+        static void CalculateMatrix(int firstMatrixRow, int firstMatrixColumn, List<int> firstMatrix, int secondMatrixRow, int secondMatrixColumn, List<int> secondMatrix, List<long> answerMatrix)
+        {
+            if (firstMatrixColumn != secondMatrixRow) return;
+            for (int iniA = 0; iniA < firstMatrixRow * firstMatrixColumn; iniA += firstMatrixColumn)
+            {
+                for (int iniB = 0; iniB < secondMatrixColumn; iniB++)
+                {
+                    long sum = 0;
+                    for (int i = 0; i < input_A_Column; i++)
+                    {
+                        sum += firstMatrix[iniA + i] * secondMatrix[i * secondMatrixColumn + iniB];
+                    }
+                    answerMatrix.Add(sum);
+                }
+            }
+        }
+        static void OutputMatrix(List<long> matrix, int row, int column)
+        {
+            for (int i = 0; i < row * column; i++)
+            {
+                Console.Write(matrix[i]);
+                if (i % column == column - 1)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+        }
+    }
+}
