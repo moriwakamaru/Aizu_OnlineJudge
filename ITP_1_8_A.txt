@@ -1,0 +1,30 @@
+using System;
+
+namespace ITP1_1_A
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            string Line = Console.ReadLine();
+
+            char[] cs = Line.ToCharArray();
+
+            for (int i = 0; i < cs.Length; i++)
+            {
+                if (char.IsUpper(cs[i]))
+                {
+                    cs[i] = char.ToLower(cs[i]);
+                }
+                else if (char.IsLower(cs[i]))
+                {
+                    cs[i] = char.ToUpper(cs[i]);
+                }
+            }
+            string outputLine = new string(cs);
+
+            Console.WriteLine(outputLine);
+        }
+    }
+}
