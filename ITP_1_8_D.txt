@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    public static void Main()
+    {
+        char[] line = Console.ReadLine().ToCharArray();
+        char[] target = Console.ReadLine().ToCharArray();
+        List<int> startPoint =new List<int>();
+
+        for(int i=0; i<line.Length;i++)
+        {
+            if (target[0] == line[i]) startPoint.Add(i);
+        }
+
+        bool no = false;
+        if (startPoint.Count == 0) no = true;
+        for(int j=0;j<startPoint.Count;j++)
+        {
+            int match = 0;
+            for (int k=0;k<target.Length;k++)
+            {
+                if (line[startPoint[j]] == target[k]) match++;
+                startPoint[j]++;
+                if (startPoint[j] == line.Length) startPoint[j] = 0;
+            }
+            if(match==target.Length)
+            {
+                Console.WriteLine("Yes");
+                no = false;
+                break;
+            }else
+            {
+                no = true;
+            }
+        }
+        if(no) Console.WriteLine("No");
+    }
+}
